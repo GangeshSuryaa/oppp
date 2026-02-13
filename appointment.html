@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block title %}Book Appointment - Dr. Varnana{% endblock %}
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <div class="page-header-content" data-aos="fade-up">
+            <span class="section-badge">Appointment</span>
+            <h1>Book Your <span class="gradient-text">Appointment</span></h1>
+            <p>Schedule a consultation with Dr. Varnana</p>
+            <nav class="breadcrumb"><a href="/">Home</a><i class="fas fa-chevron-right"></i><span>Appointment</span>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="section appointment-section">
+    <div class="container">
+        <div class="appointment-grid">
+            <div class="appointment-form-wrapper" data-aos="fade-right">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h2><i class="fas fa-calendar-check"></i> Schedule Your Visit</h2>
+                        <p>Fill out the form below and we'll confirm your appointment shortly</p>
+                    </div>
+                    <form id="appointmentForm" class="appointment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="apt-name"><i class="fas fa-user"></i> Full Name *</label>
+                                <input type="text" id="apt-name" name="name" required placeholder="Your full name">
+                                <span class="form-error" id="nameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="apt-email"><i class="fas fa-envelope"></i> Email *</label>
+                                <input type="email" id="apt-email" name="email" required placeholder="your@email.com">
+                                <span class="form-error" id="emailError"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="apt-phone"><i class="fas fa-phone"></i> Phone Number *</label>
+                                <input type="tel" id="apt-phone" name="phone" required placeholder="+1 (234) 567-890">
+                                <span class="form-error" id="phoneError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="apt-age"><i class="fas fa-birthday-cake"></i> Age</label>
+                                <input type="number" id="apt-age" name="age" placeholder="Your age" min="1" max="120">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="apt-date"><i class="fas fa-calendar"></i> Preferred Date *</label>
+                                <input type="date" id="apt-date" name="date" required>
+                                <span class="form-error" id="dateError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="apt-time"><i class="fas fa-clock"></i> Preferred Time *</label>
+                                <select id="apt-time" name="time" required>
+                                    <option value="">Select a time slot</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="09:30">9:30 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="10:30">10:30 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="14:30">2:30 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="15:30">3:30 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="16:30">4:30 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                </select>
+                                <span class="form-error" id="timeError"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="apt-reason"><i class="fas fa-notes-medical"></i> Reason for Visit *</label>
+                            <select id="apt-reason" name="reason" required>
+                                <option value="">Select reason</option>
+                                <option value="General Consultation">General Consultation</option>
+                                <option value="Asthma">Asthma Management</option>
+                                <option value="COPD">COPD Treatment</option>
+                                <option value="Sleep Apnea">Sleep Apnea Evaluation</option>
+                                <option value="Lung Cancer Screening">Lung Cancer Screening</option>
+                                <option value="Breathing Difficulty">Breathing Difficulty</option>
+                                <option value="Chronic Cough">Chronic Cough</option>
+                                <option value="Pulmonary Function Test">Pulmonary Function Test</option>
+                                <option value="Follow-up">Follow-up Visit</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="apt-message"><i class="fas fa-comment-medical"></i> Additional Notes</label>
+                            <textarea id="apt-message" name="message" rows="4"
+                                placeholder="Any additional information about your condition..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" id="appointmentSubmit">
+                            <span class="btn-text"><i class="fas fa-calendar-check"></i> Request Appointment</span>
+                            <span class="btn-loader" style="display:none;"><i class="fas fa-spinner fa-spin"></i>
+                                Submitting...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="appointment-info" data-aos="fade-left">
+                <div class="info-card">
+                    <div class="info-card-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Office Hours</h3>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></li>
+                        <li><span>Saturday</span><span>9:00 AM - 2:00 PM</span></li>
+                        <li><span>Sunday</span><span>Closed</span></li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon"><i class="fas fa-phone-alt"></i></div>
+                    <h3>Quick Contact</h3>
+                    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                    <p><a href="mailto:dr.varnana@lungcare.com">dr.varnana@lungcare.com</a></p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h3>Emergency?</h3>
+                    <p>For medical emergencies, please call <strong>911</strong> or visit your nearest emergency room
+                        immediately.</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-icon"><i class="fas fa-info-circle"></i></div>
+                    <h3>What to Bring</h3>
+                    <ul class="checklist">
+                        <li><i class="fas fa-check"></i> Photo ID</li>
+                        <li><i class="fas fa-check"></i> Insurance card</li>
+                        <li><i class="fas fa-check"></i> List of medications</li>
+                        <li><i class="fas fa-check"></i> Previous medical records</li>
+                        <li><i class="fas fa-check"></i> Referral letter (if applicable)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
